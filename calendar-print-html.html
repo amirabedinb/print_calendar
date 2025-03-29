@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سیستم چاپ تقویم و عکس</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- اضافه کردن کتابخانه jsPDF برای تولید PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>سیستم چاپ تقویم و عکس</h1>
+        </header>
+        
+        <div class="settings-panel">
+            <div class="setting-group">
+                <h3>تنظیمات نمایش</h3>
+                <div class="setting">
+                    <label for="calendar-mode">حالت نمایش:</label>
+                    <select id="calendar-mode">
+                        <option value="1">یک ماه در هر صفحه</option>
+                        <option value="2">دو ماه در هر صفحه</option>
+                        <option value="3">سه ماه در هر صفحه</option>
+                    </select>
+                </div>
+                
+                <div class="setting">
+                    <label for="page-orientation">جهت چاپ:</label>
+                    <select id="page-orientation">
+                        <option value="portrait">عمودی</option>
+                        <option value="landscape">افقی</option>
+                    </select>
+                </div>
+                
+                <div class="setting">
+                    <label for="paper-size">اندازه کاغذ:</label>
+                    <select id="paper-size">
+                        <option value="a4">A4</option>
+                        <option value="a3">A3</option>
+                        <option value="a5">A5</option>
+                        <option value="letter">Letter</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="setting-group">
+                <h3>تنظیمات عکس</h3>
+                <div class="month-images">
+                    <div class="month-image-row" id="image-container">
+                        <!-- محتوا با JavaScript ایجاد می‌شود -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="setting-group">
+                <h3>تنظیمات مناسبت ها</h3>
+                <div class="setting">
+                    <button id="add-event">افزودن مناسبت جدید</button>
+                </div>
+                <div id="events-container">
+                    <!-- محتوا با JavaScript ایجاد می‌شود -->
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button id="generate-calendar">ساخت تقویم</button>
+                <button id="print-calendar">چاپ تقویم</button>
+                <button id="save-pdf">ذخیره PDF</button>
+            </div>
+        </div>
+        
+        <div id="preview-container">
+            <div id="calendar-preview">
+                <!-- تقویم با JavaScript ایجاد می‌شود -->
+            </div>
+        </div>
+        
+        <div id="event-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>افزودن مناسبت</h3>
+                <div class="modal-form">
+                    <div class="form-group">
+                        <label for="event-date">تاریخ:</label>
+                        <input type="date" id="event-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-title">عنوان مناسبت:</label>
+                        <input type="text" id="event-title">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">نوع مناسبت:</label>
+                        <select id="event-type">
+                            <option value="normal">عادی (آبی)</option>
+                            <option value="holiday">تعطیل (قرمز)</option>
+                        </select>
+                    </div>
+                    <button id="save-event">ذخیره</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
